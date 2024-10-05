@@ -1,2 +1,2 @@
-# Validaci-n-Formulario
+# ValidacionFormulario
 Proyecto que valida formularios mediante Java Script
