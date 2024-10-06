@@ -17,14 +17,17 @@ document.addEventListener("DOMContentLoaded", function(){
     const spinner= document.querySelector("#spinner");
     
     //Agregamos la funcion de validar a los inputs
-    inputEmail.addEventListener("input", validar);
-    inputAsunto.addEventListener("input", validar);
-    inputMensaje.addEventListener("input", validar);
+    inputEmail.addEventListener("blur", validar);
+    inputAsunto.addEventListener("blur", validar);
+    inputMensaje.addEventListener("blur", validar);
     formulario.addEventListener("submit", enviarEmail);
 
     btnReset.addEventListener("click", function(e){
-        e.preventDefault();
+
         resetFormulario();
+        setTimeout(() => {
+            limpiarAlertas()
+        }, 0);
     })
 
     function enviarEmail(e){
@@ -125,6 +128,11 @@ document.addEventListener("DOMContentLoaded", function(){
         email.mensaje = "";
         formulario.reset();
         comprobarEmail();
+    }
+
+    function limpiarAlertas() {
+        const alertas = document.querySelectorAll(".alerta");
+        alertas.forEach(alerta => alerta.remove());
     }
 
 

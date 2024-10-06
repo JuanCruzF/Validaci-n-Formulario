@@ -3,64 +3,92 @@
   <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/tailwind.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/tailwind.min.css" media="screen,projection"/>
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/spinner.css">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <title>Enviar Email</title>
   </head>
-  <body>
+  <body class="bg-gray-100">
 
-    <div class="container mx-auto mt-20 bg-white rounded-lg">     
-        <header id="header" class="bg-pink-800 p-3 font-bold rounded-t-lg">
-            Enviar Nuevo Mail
+    <div class="container mx-auto mt-10 px-4">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <header id="header" class="bg-gray-600 p-4 sm:p-6 font-bold text-white text-lg sm:text-xl">
+          Enviar Correo
         </header>
 
+        <form id="enviar-mail" class="py-8 px-6 sm:px-10">
+          <div class="mb-6">
+            <label for="email" class="block text-gray-700 mb-2">Para:</label>
+            <input 
+              class="bg-gray-100 border border-gray-300 shadow-sm p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500" 
+              id="email" 
+              name="email" 
+              type="email" 
+              placeholder="ejemplo@correo.com"
+              required
+            >
+          </div>
 
-        <form id="enviar-mail" class="py-10 px-5 max-w-lg mx-auto rounded-lg">
-            <div class="mb-10">
-                <label for="email">Para:</label>
-                <input class="bg-gray-100 border shadow p-3 w-full rounded-lg"  id="email" name="email" type="email">
-            </div>
-            <div class="mb-10">
-                <label for="asunto">Asunto</label>
-                <input class="bg-gray-100 border shadow p-3 w-full rounded-lg"  id="asunto" name="asunto" type="text">
-            </div>
-            <div class="mb-10"> 
-                <label for="mensaje">Mensaje</label>
-                <textarea class="bg-gray-100 border shadow p-3 w-full rounded-lg" id="mensaje" name="mensaje"></textarea>
-            </div>
-            
-            <div class="flex justify-between">
-                    <button 
-                        id="enviar" class="w-full bg-blue-600 px-2 py-5 text-white items-center cursor-not-allowed opacity-50 mr-5 uppercase font-bold items-center flex justify-center rounded-lg" 
-                        type="submit" 
-                    >Enviar
-                        <i class="material-icons right text-white ml-3">send</i>
-                    </button>
+          <div class="mb-6">
+            <label for="asunto" class="block text-gray-700 mb-2">Asunto:</label>
+            <input 
+              class="bg-gray-100 border border-gray-300 shadow-sm p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500" 
+              id="asunto" 
+              name="asunto" 
+              type="text" 
+              placeholder="Asunto del correo"
+              required
+            >
+          </div>
 
-                    <button 
-                        id="resetBtn" 
-                        class="w-full bg-green-600 px-2 py-5 text-white items-center uppercase font-bold items-center flex justify-center rounded-lg" 
-                        type="reset"
-                    >Resetear Form
-                            <i class="material-icons right ml-3">delete</i>
-                    </button>
+          <div class="mb-6">
+            <label for="mensaje" class="block text-gray-700 mb-2">Mensaje:</label>
+            <textarea 
+              class="bg-gray-100 border border-gray-300 shadow-sm p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500" 
+              id="mensaje" 
+              name="mensaje" 
+              rows="5" 
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-between">
+            <button 
+              id="enviar" 
+              class="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 px-4 py-3 text-white uppercase font-bold rounded-lg flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50 mb-4 sm:mb-0 sm:mr-2"
+              type="submit"
+              disabled
+            >
+              Enviar
+              <i class="material-icons right text-white ml-2">send</i>
+            </button>
+
+            <button 
+              id="resetBtn" 
+              class="w-full sm:w-1/2 bg-green-600 hover:bg-green-700 px-4 py-3 text-white uppercase font-bold rounded-lg flex items-center justify-center"
+              type="reset"
+            >
+              Resetear Formulario
+              <i class="material-icons right ml-2">delete</i>
+            </button>
+          </div>
+
+          <div id="spinner" class="hidden flex justify-center mt-8">
+            <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
             </div>
-            <div id="spinner" class="hidden justify-center mt-10">
-                <div class="sk-chase">
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                </div>
-            </div>
+          </div>
         </form> 
+      </div>
     </div>
 
     <script src="js/app.js"></script>
   </body>
 </html>
-      
